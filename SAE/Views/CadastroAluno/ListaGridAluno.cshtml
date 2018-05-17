@@ -1,0 +1,83 @@
+﻿@model PagedList.IPagedList<SAE.Models.Aluno>
+@{
+    ViewBag.Title = "Cadastro de Aluno";
+    Layout = "~/Views/Shared/_Layout_BS4.cshtml";
+}
+
+<div class="container-fluid">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">ALUNOS</div>
+        <div class="panel-body">
+
+            <div class="table-responsive">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>e-mail</th>
+                                    <th>Situação</th>
+                                    <th>Boleto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var aluno in Model)
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(alunox => aluno.ID)</td>
+                                        <td>@Html.DisplayFor(alunox => aluno.Nome)</td>
+                                        <td>@Html.DisplayFor(alunox => aluno.Email)</td>
+                                        <td>@Html.DisplayFor(alunox => aluno.AlunoSituacao.Descricao)</td>
+                                        <td><a href="@Url.Action("AlteraAluno","CadastroAluno", new { IDAluno=aluno.ID })">Editar</a></td>
+                                        <td><a href="@Url.Action("EmiteBoletoAluno","Financeiro", new { IDAluno = aluno.ID })">Boleto </a><i class="fa pa-print"></i></td>
+                                    </tr>
+                                }@Url.Action("ListaGridAluno", "CadastroAluno")
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12" style="text-align:center">
+
+                        @if (Model.HasPreviousPage)
+                        {
+                            @Html.ActionLink("<<", "ListaGridAluno", new { pagina = 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+                            @Html.Raw(" ");
+                            @Html.ActionLink("< ", "ListaGridAluno", new { pagina = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+                        }
+                        else
+                        {
+                            @Html.Raw("<< <");
+                        }
+
+                        @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                        @Html.Raw(" / ")
+                        @Model.PageCount
+
+                        @if (Model.HasNextPage)
+                        {
+                            @Html.ActionLink(" >", "ListaGridAluno", new { pagina = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+                            @Html.Raw(" ");
+                            @Html.ActionLink(">>", "ListaGridAluno", new { pagina = Model.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+                        }
+                        else
+                        {
+                            @Html.Raw("> >>")
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/Mascaras")
+}

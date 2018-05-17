@@ -1,0 +1,10 @@
+﻿@model SAE.Models.Aluno
+@{
+    ViewBag.Title = "EmiteBoletoAluno";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Boleto</h2>
+
+<div id="innerBoleto">@Html.Raw(ViewBag.BoletoHTML)</div>
+

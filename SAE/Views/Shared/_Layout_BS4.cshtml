@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-dark bg-dark navbar-expand-md">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse"
+                data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            &#x2630;
+        </button> <a class="navbar-brand"
+                     href="#">SAE</a>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @*
+                    <li class="active nav-item"><a href="#" class="nav-link">Cadastros</a>
+                    </li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a>
+                    </li>*@
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Cadastros<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a href="@Url.Action("CadastroAluno", "CadastroAluno")">Alunos</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="@Url.Action("ListaGridAluno", "CadastroAluno")">Interessados</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Respons&#xE1;veis</a>
+                        </li>
+                        <li role="separator" class="divider dropdown-item"></li>
+                        @*
+                            <li class="dropdown-header dropdown-item">Nav header</li>*@
+                        <li class="dropdown-item">
+                            <a href="#">Workflow Comercial</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Documentos Pendentes</a>
+                        </li>
+                        <li role="separator" class="divider dropdown-item"></li>@*
+                            <li class="dropdown-header dropdown-item">Nav header</li>*@
+                        <li class="dropdown-item">
+                            <a href="#">Funcion&#xE1;rios</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Clientes / Fornecedores</a>
+                        </li>
+                        <li role="separator" class="divider dropdown-item"></li>@*
+                            <li class="dropdown-header dropdown-item">Nav header</li>*@
+                        <li class="dropdown-item">
+                            <a href="#">&#xCD;tens de Estoque</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Cadastros Gerais</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Dados da Empresa</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Pedag&#xF3;gico<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a href="#">Action</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Another action</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Something else here</a>
+                        </li>
+                        <li role="separator" class="divider dropdown-item"></li>@*
+                            <li class="dropdown-header dropdown-item">Nav header</li>*@
+                        <li class="dropdown-item">
+                            <a href="#">Separated link</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">One more separated link</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Biblioteca<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a href="#">Action</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Another action</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Something else here</a>
+                        </li>
+                        <li role="separator" class="divider dropdown-item"></li>@*
+                            <li class="dropdown-header dropdown-item">Nav header</li>*@
+                        <li class="dropdown-item">
+                            <a href="#">Separated link</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">One more separated link</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Financeiro<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a href="#">Action</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Another action</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Something else here</a>
+                        </li>
+                        <li role="separator" class="divider dropdown-item"></li>@*
+                            <li class="dropdown-header dropdown-item">Nav header</li>*@
+                        <li class="dropdown-item">
+                            <a href="#">Separated link</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">One more separated link</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Relat&#xF3;rios<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a href="#">Action</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Another action</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Something else here</a>
+                        </li>
+                        <li role="separator" class="divider dropdown-item"></li>@*
+                            <li class="dropdown-header dropdown-item">Nav header</li>*@
+                        <li class="dropdown-item">
+                            <a href="#">Separated link</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">One more separated link</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Ferramentas<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a href="#">Action</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Another action</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Something else here</a>
+                        </li>
+                        <li role="separator" class="divider dropdown-item"></li>@*
+                            <li class="dropdown-header dropdown-item">Nav header</li>*@
+                        <li class="dropdown-item">
+                            <a href="#">Separated link</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">One more separated link</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Utilit&#xE1;rios<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <a href="#">Action</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Another action</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">Something else here</a>
+                        </li>
+                        <li role="separator" class="divider dropdown-item"></li>@*
+                            <li class="dropdown-header dropdown-item">Nav header</li>*@
+                        <li class="dropdown-item">
+                            <a href="#">Separated link</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#">One more separated link</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </nav>
+    <br>
+    <div class="container body-content">
+        @RenderBody()
+        @*
+            <hr>
+            <footer>
+                <p>&#xA9; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

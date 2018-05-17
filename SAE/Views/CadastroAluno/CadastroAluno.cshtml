@@ -1,0 +1,293 @@
+﻿@model SAE.Models.Aluno
+@{
+    ViewBag.Title = "Cadastro de Aluno";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="row">
+    <div class="col-md-12">
+
+        @using (Html.BeginForm("AdicionaAluno", "CadastroAluno", null, FormMethod.Post, new { Class = "form-horizontal" }))
+        {
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset class="col-md-12">
+
+                <legend>Cadastro de Aluno</legend>
+                <div class="container-fluid">
+
+                    <!--DADOS BÁSICOS-->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">DADOS BÁSCIOS</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-2 " style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.ID)
+                                    @Html.TextBoxFor(m => m.ID, new { Class = "integer form-control input-sm", @readonly = "readonly" })
+                                </div>
+                                <div class="col-md-4" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.Nome)
+                                    @Html.TextBoxFor(m => m.Nome, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.Nome)
+                                </div>
+                                <div class="col-md-2 " style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.AlunoSituacaoID)
+                                    @Html.DropDownListFor(m => m.AlunoSituacaoID, ViewBag.AnuloSituacao as SelectList, new { @class = "form-control input-sm" })
+                                </div>
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.DataNascimento)
+                                    @Html.TextBoxFor(m => m.DataNascimento, new { Class = "date form-control input-sm", placeholder = "dd/mm/yyyy" })
+                                    @Html.ValidationMessageFor(m => m.DataNascimento)
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.Sexo)
+                                    @Html.DropDownListFor(x => x.Sexo, ViewBag.Sexo as SelectList, new { @class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(x => x.Sexo)
+                                </div>
+                                <div class="col-md-4" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.Email)
+                                    @Html.TextBoxFor(m => m.Email, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.Email)
+                                </div>
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.EstadoCivil)
+                                    @Html.DropDownListFor(m => m.EstadoCivil, ViewBag.EstadoCivil as SelectList, new { @class = "form-control input-sm" })
+                                </div>
+                                <div class="col-md-3" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.CidadeNatal)
+                                    @Html.TextBoxFor(m => m.CidadeNatal, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.CidadeNatal)
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-3" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.Profissao)
+                                    @Html.TextBoxFor(m => m.Profissao, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.Profissao)
+                                </div>
+                                <div class="col-md-4" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.NomeEmpresa)
+                                    @Html.TextBoxFor(m => m.NomeEmpresa, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.NomeEmpresa)
+                                </div>
+                            </div>
+                            <br />
+
+                        </div>
+                    </div>
+
+                    <!--DOCUMENTOS-->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">DOCUMENTOS</div>
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.RG)
+                                    @Html.TextBoxFor(m => m.RG, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.RG)
+                                </div>
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.OrgaoExpRG)
+                                    @Html.TextBoxFor(m => m.OrgaoExpRG, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.OrgaoExpRG)
+                                </div>
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.DataExpRG)
+                                    @Html.TextBoxFor(m => m.DataExpRG, new { Class = "date form-control input-sm", placeholder = "dd/mm/yyyy" })
+                                    @Html.ValidationMessageFor(m => m.DataExpRG)
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.CPF)
+                                    @Html.TextBoxFor(m => m.CPF, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.CPF)
+                                </div>
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.Reservista)
+                                    @Html.TextBoxFor(m => m.Reservista, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.Reservista)
+                                </div>
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.Passaporte)
+                                    @Html.TextBoxFor(m => m.Passaporte, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.Passaporte)
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-3" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.TituloEleitor)
+                                    @Html.TextBoxFor(m => m.TituloEleitor, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.TituloEleitor)
+                                </div>
+                                <div class="col-md-1" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.Zona)
+                                    @Html.TextBoxFor(m => m.Zona, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.Zona)
+                                </div>
+                                <div class="col-md-1" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.Secao)
+                                    @Html.TextBoxFor(m => m.Secao, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.Secao)
+                                </div>
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.DataEmissaoTE)
+                                    @Html.TextBoxFor(m => m.DataEmissaoTE, new { Class = "date form-control input-sm", placeholder = "dd/mm/yyyy" })
+                                    @Html.ValidationMessageFor(m => m.DataEmissaoTE)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--ENDEREÇO-->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">ENDEREÇO</div>
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.CEP)
+                                    @Html.TextBoxFor(m => m.CEP, new { Class = "form-control input-sm", placeholder = "99999-999" })
+                                    @Html.ValidationMessageFor(m => m.CEP)
+                                </div>
+                                <div class="col-md-4" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.Logradouro)
+                                    @Html.TextBoxFor(m => m.Logradouro, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.Logradouro)
+                                </div>
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.NumeroLogradouro)
+                                    @Html.TextBoxFor(m => m.NumeroLogradouro, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.NumeroLogradouro)
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.Complemento)
+                                    @Html.TextBoxFor(m => m.Complemento, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.Complemento)
+                                </div>
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.Cidade)
+                                    @Html.TextBoxFor(m => m.Cidade, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.Cidade)
+                                </div>
+                                <div class="col-md-1" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.UF)
+                                    @Html.TextBoxFor(m => m.UF, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.UF)
+                                </div>
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.Bairro)
+                                    @Html.TextBoxFor(m => m.Bairro, new { Class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.Bairro)
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.TelefoneResidencial)
+                                    @Html.TextBoxFor(m => m.TelefoneResidencial, new { Class = "form-control input-sm", placeholder = "(99) 9999-9999" })
+                                    @Html.ValidationMessageFor(m => m.TelefoneResidencial)
+                                </div>
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.TelefoneComercial)
+                                    @Html.TextBoxFor(m => m.TelefoneComercial, new { Class = "form-control input-sm", placeholder = "(99) 9999-9999" })
+                                    @Html.ValidationMessageFor(m => m.TelefoneComercial)
+                                </div>
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.TelefoneCelular)
+                                    @Html.TextBoxFor(m => m.TelefoneCelular, new { Class = "form-control input-sm", placeholder = "(99) 99999-9999" })
+                                    @Html.ValidationMessageFor(m => m.TelefoneCelular)
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-3" style="padding-right:25px;">
+                                    @Html.CheckBoxFor(m => m.ReceberEmail, new { Class = "input-md" })
+                                    @Html.LabelFor(m => m.ReceberEmail)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--DADOS BANCÁRIOS-->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">DADOS BANCÁRIOS</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.PercentualBolsa)
+                                    @Html.TextBoxFor(m => m.PercentualBolsa, new { Class = "form-control input-sm", placeholder = "0%" })
+                                    @Html.ValidationMessageFor(m => m.PercentualBolsa)
+                                </div>
+                                <div class="col-md-2" style="padding-right:25px;">
+                                    @Html.LabelFor(m => m.DiaVencimento)
+                                    @Html.TextBoxFor(m => m.DiaVencimento, new { Class = "form-control input-sm", placeholder = "99/99/9999" })
+                                    @Html.ValidationMessageFor(m => m.DiaVencimento)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--RESPONSÁVEIS-->
+                    @*<div class="panel panel-primary">
+                            <div class="panel-heading">RESPONSÁVEIS</div>
+                            <div class="panel-body"></div>
+                        </div>*@
+
+                    <!--INTERESSADO-->
+                    @*<div class="panel panel-primary">
+                            <div class="panel-heading">INTERESSADO</div>
+                            <div class="panel-body"></div>
+                        </div>*@
+
+                    <!--FOLLOW-->
+                    @*<div class="panel panel-primary">
+                            <div class="panel-heading">FOLLOW</div>
+                            <div class="panel-body"></div>
+                        </div>*@
+
+                    <!--OBSERVAÇÕES-->
+                    @*<div class="panel panel-primary">
+                            <div class="panel-heading">OBSERVAÇÕES</div>
+                            <div class="panel-body"></div>
+                        </div>*@
+
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-2">
+                                <input class="btn btn-primary btn-lg btn-block text-center" type="submit" value="Salvar" />
+                            </div>
+                            <div class="col-md-2">
+                                <input class="btn btn-primary btn-lg btn-block" type="submit" value="Cancelar" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+        }
+
+
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/Mascaras")
+}
